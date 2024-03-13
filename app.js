@@ -17,15 +17,23 @@ let winPatterns = [
     [6, 7, 8],
 ];
 
-boxes.forEach((box) => {
-    box.addEventListener("click", () => {
-        box.innerHTML = (turn0)? 'X':'0';
-        turn0 = !turn0;
-        box.disabled = true;
-        box.classList.add('box'+box.innerHTML)
-        checkWinner();
-    });
-});
+// boxes.forEach((box) => {
+//     box.addEventListener("click", () => {
+//         box.innerHTML = (turn0)? 'X':'0';
+//         turn0 = !turn0;
+//         box.disabled = true;
+//         box.classList.add('box'+box.innerHTML)
+//         checkWinner();
+//     });
+// });
+
+const clickedOnBox = (box) => {
+    box.innerHTML = (turn0)? 'X':'0';
+    turn0 = !turn0;
+    box.disabled = true;
+    box.classList.add('box'+box.innerHTML);
+    checkWinner();
+}
 
 const checkWinner = () => {
     for (const pattern of winPatterns) {
